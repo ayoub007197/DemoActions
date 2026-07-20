@@ -1,0 +1,24 @@
+name: Build Demo
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display event name
+        run: echo "Event: ${{ github.event_name }}"
+
+      - name: Display current branch
+        run: echo "Branch: ${{ github.ref }}"
+
+      - name: List repository files
+        run: tree
